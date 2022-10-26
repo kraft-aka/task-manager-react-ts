@@ -1,6 +1,6 @@
 .input {
   display: flex;
-  width: 90%;
+  width: 95%;
   position: relative;
   align-items: center;
   margin: 0 auto;
@@ -47,5 +47,96 @@
   box-shadow: 0 0 5px #111;
 }
 
+.container {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px auto;
+}
+
+.todos-single-text {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  font-size: 20px;
+
+}
 
 
+.todos-single-text:focus {
+  outline: none;
+
+}
+
+.todos-heading {
+  font-size: 30px;
+  color: #fff;
+}
+
+.todos {
+  display: flex;
+  width: 46.5%;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: lightblue;
+}
+
+.todos-single {
+  display: flex;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 15px;
+  margin-left: 30px;
+  background-image: url("https://img.freepik.com/fotos-kostenlos/gelber-lehm-strukturierter-hintergrund-bunter-handgemachter-kreativer-kunstzusammenfassungsstil_53876-133051.jpg?w=1380&t=st=1666712060~exp=1666712660~hmac=1504234aafc35c93c141eefaa733351a98d2cc0f4a9a946fc00006f89c1328bc");
+  transition: 0.2s;
+}
+
+.todos-single:hover {
+  box-shadow: 0 0 5px #111;
+  transform: scale(1.03);
+}
+
+
+.todos-single-text {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  font-size: 20px;
+}
+
+.todos-single-text:focus {
+  outline: none;
+}
+
+.icon {
+  margin-left: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+@media (max-width:1100px) {
+  .todos {
+    width: 45%;
+  }
+}
+
+@media (max-width: 700px) {
+  .input {
+    width: 95%;
+  }
+  .todos {
+    width: 95%;
+    margin-bottom:10px;
+  }
+
+  .container {
+    width: 95%;
+    flex-direction: column;
+  }
+}
+
+.remove {
+  background-color: tomato;
+}

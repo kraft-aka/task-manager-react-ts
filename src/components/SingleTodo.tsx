@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Todo } from './Model';
 import { AiFillEdit } from 'react-icons/ai';
 import { AiFillDelete } from 'react-icons/ai';
@@ -15,6 +15,13 @@ export const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
 
   const [edit, setEdit] = useState<boolean>(false);
   const [editTodo, setEditTodo] = useState<string>(todo.todo);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, [edit])
+  
+
 
   const handleDone = (id: number) => {
     setTodos(todos.map(todo => todo.id === id ? { ...todo, isDone: !todo.isDone } : todo))
@@ -24,22 +31,23 @@ export const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
     setTodos(todos.filter(todo => todo.id !== id));
   }
 
-  const handleEdit =(e:React.FormEvent, id: number) => {
+  const handleEdit = (e: React.FormEvent, id: number) => {
     e.preventDefault();
 
-    setTodos(todos.map(todo=> (
-      todo.id===id?{...todo,todo:editTodo} : (todo)
+    setTodos(todos.map(todo => (
+      todo.id === id ? { ...todo, todo: editTodo } : todo
     )));
     setEdit(false)
   }
 
   return (
 
-    <form className='todos-single' onSubmit={(e)=> handleEdit(e, todo.id)}>
+    <form className='todos-single' onSubmit={(e) => handleEdit(e, todo.id)}>
       {edit ? (
-      <input value={editTodo} 
-      onChange={(e) => setEditTodo(e.target.value)} className="todos-single-text" 
-      />
+        <input value={editTodo}
+          ref ={inputRef}
+          onChange={(e) => setEditTodo(e.target.value)} className="todos-single-text"
+        />
       ) : todo.isDone ? (
         <s className="todos-single-text">{todo.todo}</s>
       ) : (

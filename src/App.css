@@ -21,39 +21,7 @@
   text-align: center;
 }
 
-.todos {
-  display: flex;
-  justify-content: space-evenly;
-  width: 90%;
-  flex-wrap: wrap;
-}
 
-.todos-single {
-  display: flex;
-  width: 30%;
-  border-radius: 15px;
-  padding: 20px;
-  margin-top: 15px;
-  margin-left: 30px;
-  background-image: url("https://img.freepik.com/fotos-kostenlos/gelber-lehm-strukturierter-hintergrund-bunter-handgemachter-kreativer-kunstzusammenfassungsstil_53876-133051.jpg?w=1380&t=st=1666712060~exp=1666712660~hmac=1504234aafc35c93c141eefaa733351a98d2cc0f4a9a946fc00006f89c1328bc");
-}
-
-.todos-single-text {
-  flex: 1;
-  padding: 5px;
-  border: none;
-  font-size: 20px;
-}
-
-.todos-single-text:focus {
-  outline: none;
-}
-
-.icon {
-  margin-left: 10px;
-  font-size: 25px;
-  cursor: pointer;
-}
 
 
 @media (max-width: 1200px) {
